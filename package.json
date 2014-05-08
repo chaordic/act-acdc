@@ -1,0 +1,9 @@
+{
+  "name": "act-acdc",
+  "version": "0.0.0",
+  "description": "Academia Chaordic de Tecnologia - AC/DC: AWS Cloud/DevOps Culture",
+  "main": "index.js",
+  "dependencies": {
+    "restify": "^2.7.0"
+  }
+}
