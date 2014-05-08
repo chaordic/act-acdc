@@ -1,9 +1,24 @@
 var restify = require("restify"),
-    server = restify.createServer();
+    server = restify.createServer(),
+
+    twitterAuth,
+    twitter;
+
+try {
+    twitterAuth = require("./twitterAuth");
+} catch(e) {
+    console.error(e);
+    console.error("[ERROR] Please see README.me for troubleshooting");
+    process.exit(1);
+}
+
+twitter = new require("twitter")(twitterAuth);
 
 server.get("/", function(req, res, next) {
-    res.send("My wife says I'm the only one");
-    next();
+    twitter.search("#acdc", function(data) {
+        res.send(data);
+        next();
+    });
 });
 
 server.listen(8080, function() {
