@@ -1,5 +1,12 @@
 # AC/DC: AWS Cloud/DevOps Culture
 
+## Requirements
+
+
+Node.js and NPM [http://nodejs.org/](http://nodejs.org/)
+
+Redis [http://redis.io/](http://redis.io/)
+
 ## Install
 
 Clone the project
