@@ -1,0 +1,22 @@
+---
+- git: repo=https://github.com/chaordic/act-acdc.git
+       dest={{ src_root }}
+  sudo: no
+
+- npm: path={{ src_root }}
+       production=yes
+  sudo: no
+
+- copy: src=files/act-acdc/twitterAuth.json dest={{ src_root }}
+  sudo: no
+
+- name: "Check list of Node.js apps running."
+  command: forever list
+  register: forever_list
+  changed_when: false
+  sudo: no
+
+- name: "Start act-acdc"
+  command: forever start {{ src_root }}/index.js
+  when: "forever_list.stdout.find('{{ src_root }}/index.js') == -1"
+  sudo: no

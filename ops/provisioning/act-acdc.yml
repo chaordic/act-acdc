@@ -1,0 +1,12 @@
+---
+- hosts: all
+  user: vagrant
+  sudo: True
+
+  roles:
+    - common
+    - git
+    - redis
+    - nodejs
+    - forever
+    - act-acdc
