@@ -20,20 +20,33 @@ Install dependencies
 
 ## Getting Started
 
-Get Twitter API access. Open [https://apps.twitter.com/app/new](https://apps.twitter.com/app/new) and sign in to create an app
+1. Get Twitter API access
 
-Create a file `twitterAuth.json` with your credentials within the project's root directory
+    See [https://dev.twitter.com/docs/auth/obtaining-access-tokens](https://dev.twitter.com/docs/auth/obtaining-access-tokens) and create tokens to access Twitter's API
+
+2. Get Librato API access
+
+    See [http://support.metrics.librato.com/knowledgebase/articles/22317-librato-api-tokens-and-token-roles](http://support.metrics.librato.com/knowledgebase/articles/22317-librato-api-tokens-and-token-roles) and create a token to access Librato's API
+
+Create a file `config.json` with your third party credentials within the project's root directory
 
     {
-        "consumer_key": "API_KEY",
-        "consumer_secret": "SECRET_KEY",
-        "access_token_key": "TOKEN_KEY",
-        "access_token_secret": "TOKEN_SECRET"
+        "twitter": {
+            "consumer_key": "CONSUMER_KEY",
+            "consumer_secret": "CONSUMER_SECRET",
+            "access_token_key": "ACCESS_TOKEN_KEY",
+            "access_token_secret": "ACCESS_TOKEN_SECRET"
+        },
+        "librato": {
+            "email": "EMAIL",
+            "token": "TOKEN"
+        }
     }
+
 
 Run the project
 
-    $ node index.js
+    $ node act-acdc.js
 
 You should see the following message on your console
 
