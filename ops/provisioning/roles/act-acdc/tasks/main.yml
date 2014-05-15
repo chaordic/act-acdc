@@ -7,7 +7,7 @@
        production=yes
   sudo: no
 
-- copy: src=files/act-acdc/config.json dest={{ src_root }}
+- copy: src=../../../../../config.json dest={{ src_root }}
   sudo: no
 
 - name: "Check list of Node.js apps running."
