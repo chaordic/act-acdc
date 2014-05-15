@@ -1,10 +1,10 @@
 var restify = require("restify"),
     server = restify.createServer(),
-
+    redis = require("redis").createClient(),
+    librato = require("./lib/librato"),
+    
     twitterAuth,
-    twitter,
-
-    redis = require("redis").createClient();
+    twitter;
 
 try {
     twitterAuth = require("./twitterAuth");
@@ -19,6 +19,8 @@ twitter = new require("twitter")(twitterAuth);
 server.get("/", function(req, res, next) {
     var term = "#acdc",
         key = "twitter-search-" + term;
+
+    librato.increment("act-acdc.throughput");
 
     cache.get(key,
         function miss(){
@@ -77,6 +79,6 @@ var html = function(res, data) {
     res.end();
 };
 
-server.listen(8080, function() {
+server.listen(3000, function() {
     console.log("AC/DC is up and running!");
 });

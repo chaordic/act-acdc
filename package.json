@@ -7,6 +7,7 @@
     "restify": "^2.7.0",
     "twitter": "^0.2.9",
     "redis": "^0.10.1",
-    "hiredis": "^0.1.16"
+    "hiredis": "^0.1.16",
+    "librato-metrics": "^0.0.7"
   }
 }
