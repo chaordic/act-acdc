@@ -17,6 +17,6 @@
   sudo: no
 
 - name: "Start act-acdc"
-  command: forever start {{ src_root }}/index.js
-  when: "forever_list.stdout.find('{{ src_root }}/index.js') == -1"
+  command: forever start {{ src_root }}/act-acdc.js
+  when: "forever_list.stdout.find('{{ src_root }}/act-acdc.js') == -1"
   sudo: no
