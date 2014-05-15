@@ -3,20 +3,20 @@
 ## Requirements
 
 
-Node.js and NPM [http://nodejs.org/](http://nodejs.org/)
+1. Node.js and NPM [http://nodejs.org/](http://nodejs.org/)
 
-Redis [http://redis.io/](http://redis.io/)
+2. Redis [http://redis.io/](http://redis.io/)
 
 ## Install
 
-Clone the project
+1. Clone the project
 
-    $ git clone git@github.com:chaordic/act-acdc.git
+        $ git clone git@github.com:chaordic/act-acdc.git
 
-Install dependencies
+2. Install dependencies
 
-    $ cd act-acdc
-    $ npm install
+        $ cd act-acdc
+        $ npm install
 
 ## Getting Started
 
@@ -28,23 +28,23 @@ Install dependencies
 
     See [http://support.metrics.librato.com/knowledgebase/articles/22317-librato-api-tokens-and-token-roles](http://support.metrics.librato.com/knowledgebase/articles/22317-librato-api-tokens-and-token-roles) and create a token to access Librato's API
 
-Create a file `config.json` with your third party credentials within the project's root directory
+3. Create a file `config.json` with your third party credentials within the project's root directory
 
-    {
-        "twitter": {
-            "consumer_key": "CONSUMER_KEY",
-            "consumer_secret": "CONSUMER_SECRET",
-            "access_token_key": "ACCESS_TOKEN_KEY",
-            "access_token_secret": "ACCESS_TOKEN_SECRET"
-        },
-        "librato": {
-            "email": "EMAIL",
-            "token": "TOKEN"
+        {
+            "twitter": {
+                "consumer_key": "CONSUMER_KEY",
+                "consumer_secret": "CONSUMER_SECRET",
+                "access_token_key": "ACCESS_TOKEN_KEY",
+                "access_token_secret": "ACCESS_TOKEN_SECRET"
+            },
+            "librato": {
+                "email": "EMAIL",
+                "token": "TOKEN"
+            }
         }
-    }
 
 
-Run the project
+## Running the project
 
     $ node act-acdc.js
 
