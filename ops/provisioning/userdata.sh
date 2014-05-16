@@ -1,0 +1,11 @@
+sudo adduser ansible --disabled-password --gecos ""
+sudo mkdir ~ansible/.ssh
+cat << EOF > ~ansible/.ssh/authorized_keys
+ssh-dss AAAAB3NzaC1kc3MAAACBAJ617QEpIkCG6n7sMqJ/YJOPDe+5pev9DTBwB8rjD2930tEPv29S1Ij1cCiNGCAeT/CLX7q/vVtXOeFe9GtM82k7mEJmyE3fj1DcXO3mBrK1CMueL+T6pRte+bryuXmh39uN61LBfMwhf9ipblQOzH8oTAkR7uPyxrZc8Nw5itQ1AAAAFQCE55DBoOu16i71Ayx1k42Zq7Y9nQAAAIEAiUql7x7imVG29ePYmGYBYklusgiU63Esrsm7pjVT/5id0Jt7svKGt4yIEoYttVjzcV8Rhf7Fjt4MyIwhABsx28lfvB8GF3XOl9Kl6tHkO0ABzw3DGC+icz/sJkxO5cwfjaeR7t03/O+puYxDRhNdb/0xQ0MET3Ky3R2QAvwR+TwAAACADuX2JFVx0CMhBvkOJDYgnJEzGY/mKsaDf27G83S/bsttkz4cc5kq7hUFonBxPmJS8jmsOv6LDN1hndnJZ/lRgJuMlWdgLxPtUP4hNBLTxlgHX4yZc3h0cXOB3W+OL7uSMOZmURpLE69bCmByvAIGguFWBBgP5vFrlmKfoojLyZo= gallois@lobitos
+ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAnayWnTA3uX8QKpREdly+jfRMxoP8Z6dz8bSa/6RoB6suzDjxa1If3PevPg6+VryCuaEfl8UAZPJT0qONDPNJPGPMBxHVVakMoNvDS4dmIq+q1oNw2OXyOmP1c915FWXlrasQ7L8KnSnu0jj7bRSKFegUTfP2gLpN6DBi3BS3kYDY5L8smC1xxIQakO9oJ3eN2qokewCNQE/9Rb1Ze4mli3GaacFVQfv73PbCVBWwPoNUN+IY2PJ4hxh54HaC0P1Q9lYX2tl53uCyXeaiblsRDt9E70PacHVMO8+MY8pDzDWDbhvVYt9EaZ3VjXt0FJiYglU2M6rtePXb/3b5cy6OwQ== thiago.caiubi@gmail.com
+EOF
+chown ansible. ~ansible/.ssh
+chown ansible. ~ansible/.ssh/authorized_keys
+chmod 600 ~ansible/.ssh/authorized_keys
+chmod 700 ~ansible/.ssh
+sudo bash -c 'echo "ansible ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers'

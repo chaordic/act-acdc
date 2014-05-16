@@ -1,0 +1,20 @@
+---
+- hosts: all
+  user: ansible
+  sudo: yes
+
+  vars:
+    ssh_users:
+    - name: thiagocaiubi
+      key: "{{ lookup('file', 'thiagocaiubi.pub') }}"
+    - name: gallois
+      key: "{{ lookup('file', 'gallois.pub') }}"
+
+  roles:
+    - common
+    - users
+    - git
+    - redis
+    - nodejs
+    - forever
+    - act-acdc
