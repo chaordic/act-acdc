@@ -3,32 +3,29 @@
 ## Requirements
 
 
-1. Node.js and NPM [http://nodejs.org/](http://nodejs.org/)
+1. Virtual Box [https://www.virtualbox.org/](https://www.virtualbox.org/)
 
-2. Redis [http://redis.io/](http://redis.io/)
+2. Vagrant [http://www.vagrantup.com/](http://www.vagrantup.com/)
 
-## Install
+3. Ansible [http://www.ansible.com/](http://www.ansible.com/)
+
+## Getting Started
 
 1. Clone the project
 
         $ git clone git@github.com:chaordic/act-acdc.git
-
-2. Install dependencies
-
         $ cd act-acdc
-        $ npm install
+        $ cp config.json.sample config.json
 
-## Getting Started
-
-1. Get Twitter API access
+2. Get Twitter API access
 
     See [https://dev.twitter.com/docs/auth/obtaining-access-tokens](https://dev.twitter.com/docs/auth/obtaining-access-tokens) and create tokens to access Twitter's API
 
-2. Get Librato API access
+3. Get Librato API access
 
     See [http://support.metrics.librato.com/knowledgebase/articles/22317-librato-api-tokens-and-token-roles](http://support.metrics.librato.com/knowledgebase/articles/22317-librato-api-tokens-and-token-roles) and create a token to access Librato's API
 
-3. Create a file `config.json` with your third party credentials within the project's root directory
+4. Fill in `config.json` with your third party credentials
 
         {
             "twitter": {
@@ -46,11 +43,7 @@
 
 ## Running the project
 
-    $ node act-acdc.js
-
-You should see the following message on your console
-
-    AC/DC is up and running!
+    $ vagrant up
 
 Open [http://localhost:8080](http://localhost:8080)
 

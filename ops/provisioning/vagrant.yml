@@ -4,8 +4,7 @@
 
   roles:
     - common
-    - git
     - redis
     - nodejs
     - forever
-    - act-acdc
+    - act-acdc-dev
