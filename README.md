@@ -43,6 +43,7 @@
 
 ## Running the project
 
+    $ cd ops
     $ vagrant up
 
 Open [http://localhost:8080](http://localhost:8080)
