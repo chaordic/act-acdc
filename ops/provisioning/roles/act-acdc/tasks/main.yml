@@ -1,22 +1,25 @@
 ---
-- git: repo=https://github.com/chaordic/act-acdc.git
+- name: Checkout project
+  git: repo=https://github.com/chaordic/act-acdc.git
        dest={{ src_root }}
   sudo: no
 
-- npm: path={{ src_root }}
+- name: Npm install
+  npm: path={{ src_root }}
        production=yes
   sudo: no
 
-- copy: src=../../../../../config.json dest={{ src_root }}
+- name: Copy config.json
+  copy: src=../../../../../config.json dest={{ src_root }}
   sudo: no
 
-- name: "Check list of Node.js apps running."
+- name: Check list of Node.js apps running
   command: forever list
   register: forever_list
   changed_when: false
   sudo: no
 
-- name: "Start act-acdc"
+- name: Start app
   command: forever start {{ src_root }}/act-acdc.js
   when: "forever_list.stdout.find('{{ src_root }}/act-acdc.js') == -1"
   sudo: no

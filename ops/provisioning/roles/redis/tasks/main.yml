@@ -1,10 +1,10 @@
 ---
-- name: Redis | Add the Redis PPA
+- name: Add the redis PPA
   apt_repository: repo='ppa:chris-lea/redis-server' state=present
   sudo: yes
   tags: redis
 
-- name: Redis | Install Redis
+- name: Install redis
   apt: pkg=redis-server state=latest update-cache=yes
   sudo: yes
   tags: redis

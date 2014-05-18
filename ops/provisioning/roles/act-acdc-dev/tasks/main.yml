@@ -1,7 +1,8 @@
 ---
-- npm: path={{ src_root }}
+- name: Npm install
+  npm: path={{ src_root }}
   sudo: no
 
-- name: "Start act-acdc"
+- name: Start app
   command: chdir={{ src_root }} forever start -w act-acdc.js
   sudo: no

@@ -13,7 +13,7 @@
 - name: Create sudoers file backup
   command: cp -f /etc/sudoers /etc/sudoers.${date}.bak
 
-- name: Add users to sudoers
+- name:  Add users to sudoers
   lineinfile: dest=/etc/sudoers.tmp state=present regexp="^{{ item.name }} ALL\=\(ALL\) NOPASSWD:ALL" line="{{ item.name }} ALL=(ALL) NOPASSWD:ALL"
   with_items: ssh_users
 

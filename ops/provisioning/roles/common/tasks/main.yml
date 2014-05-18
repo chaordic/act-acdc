@@ -1,25 +1,25 @@
 ---
-- name: Common | Update apt cache
+- name: Update apt cache
   sudo: yes
   apt: update-cache=yes
   tags: common
 
-- name: Common | Update language
+- name: Update language
   sudo: yes
   apt: pkg=language-pack-en
   tags: common
 
-- name: Common | Install gcc
+- name: Install gcc
   sudo: yes
   apt: pkg=gcc
   tags: common
 
-- name: Common | Install g++
+- name: Install g++
   sudo: yes
   apt: pkg=g++
   tags: common
 
-- name: Common | Install make
+- name: Install make
   sudo: yes
   apt: pkg=make
   tags: common
