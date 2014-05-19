@@ -4,23 +4,33 @@
        dest={{ src_root }}
        version=production
   sudo: no
+  tags: act-acdc
 
 - name: Npm install
   npm: path={{ src_root }}
        production=yes
   sudo: no
+  tags: act-acdc
 
 - name: Copy config.json
   copy: src=../../../../../config.json dest={{ src_root }}
   sudo: no
+  tags: act-acdc
+
+- name: Copy start script to /etc/rc2.d/
+  template: src=S99act-acdc.j2 dest=/etc/rc2.d/S99act-acdc owner=root group=root mode=0755
+  sudo: yes
+  tags: act-acdc
 
 - name: Check list of Node.js apps running
   command: forever list
   register: forever_list
   changed_when: false
   sudo: no
+  tags: act-acdc
 
 - name: Start app
   command: forever start {{ src_root }}/act-acdc.js
   when: "forever_list.stdout.find('{{ src_root }}/act-acdc.js') == -1"
   sudo: no
+  tags: act-acdc
