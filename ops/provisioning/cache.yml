@@ -5,8 +5,11 @@
 
   vars:
     ssh_users:
-    - name: thiagocaiubi
-    - name: gallois
+      - name: thiagocaiubi
+      - name: gallois
+    redis_instances:
+      - port: 7500
+        maxmemory: 100mb
 
   roles:
     - common
