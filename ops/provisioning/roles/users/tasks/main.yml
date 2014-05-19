@@ -4,7 +4,7 @@
   with_items: ssh_users
 
 - name: Add key to users
-  authorized_key: user={{ item.name }} key="{{ item.key }}"
+  authorized_key: user={{ item.name }} key="{{ lookup('file', '{{ item.name }}.pub') }}"
   with_items: ssh_users
 
 - name: Copy sudoers file for safety
