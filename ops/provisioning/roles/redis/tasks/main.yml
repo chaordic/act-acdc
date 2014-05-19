@@ -1,10 +1,28 @@
 ---
 - name: Add the redis PPA
   apt_repository: repo='ppa:chris-lea/redis-server' state=present
-  sudo: yes
   tags: redis
 
 - name: Install redis
   apt: pkg=redis-server state=latest update-cache=yes
-  sudo: yes
+  tags: redis
+
+- name: Create log file
+  file: path=/var/log/redis/{{ item.port }}.log owner=redis group=redis mode=0644 state=touch
+  with_items: redis_instances
+  tags: redis
+
+- name: Copy redis conf
+  template: src=redis.conf.j2 dest=/etc/redis/{{ item.port }}.conf
+  with_items: redis_instances
+  tags: redis
+
+- name: Copy upstart conf
+  template: src=upstart.conf.j2 dest=/etc/init/redis_{{ item.port }}.conf
+  with_items: redis_instances
+  tags: redis
+
+- name: restart redis
+  service: name=redis_{{ item.port }} state=restarted
+  with_items: redis_instances
   tags: redis
