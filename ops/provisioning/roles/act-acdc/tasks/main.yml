@@ -2,6 +2,7 @@
 - name: Checkout project
   git: repo=https://github.com/chaordic/act-acdc.git
        dest={{ src_root }}
+       version=production
   sudo: no
 
 - name: Npm install
