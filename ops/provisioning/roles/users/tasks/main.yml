@@ -5,7 +5,7 @@
   tags: users
 
 - name: Add key to users
-  authorized_key: user={{ item.name }} key="{{ item.key }}"
+  authorized_key: user={{ item.name }} key="{{ lookup('file', item.name + '.pub') }}"
   with_items: ssh_users
   tags: users
 
@@ -14,7 +14,7 @@
   tags: users
 
 - name: Create sudoers file backup
-  command: cp -f /etc/sudoers /etc/sudoers.${date}.bak
+  command: cp -f /etc/sudoers /etc/sudoers.{{ ansible_date_time.date }}.bak
   tags: users
 
 - name:  Add users to sudoers
