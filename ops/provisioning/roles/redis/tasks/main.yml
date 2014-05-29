@@ -25,7 +25,7 @@
   when: redis_instances is defined
   tags: redis
 
-- name: restart redis
+- name: Restart redis
   service: name=redis_{{ item.port }} state=restarted
   with_items: redis_instances
   when: redis_instances is defined
